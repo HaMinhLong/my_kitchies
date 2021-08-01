@@ -1,5 +1,8 @@
 import React from "react";
 import kimChi from "../static/images/articles/kim_chi.jpg";
+import goiCuon from "../static/images/articles/goi_cuon.jpg";
+import dauPhu from "../static/images/articles/dau_phu.jpg";
+import { Row, Col } from "antd";
 
 const Details = () => {
   return (
@@ -12,6 +15,41 @@ const Details = () => {
             <img src={kimChi} alt="" />
           </div>
           <div className="descriptions"></div>
+          <Row gutter={[24, 24]} className="related-articles">
+            <Col xs={24} md={8} lg={8} xl={8}>
+              <a href="/details" className="image-box">
+                <img src={kimChi} alt="" />
+              </a>
+              <div className="content">
+                <a href="/details" className="article-title">
+                  Kim chi Hàn Quốc
+                </a>
+                <p className="date">25, July 2021</p>
+              </div>
+            </Col>
+            <Col xs={24} md={8} lg={8} xl={8}>
+              <a href="/details" className="image-box">
+                <img src={goiCuon} alt="" />
+              </a>
+              <div className="content">
+                <a href="/details" className="article-title">
+                  Gỏi cuốn
+                </a>
+                <p className="date">25, July 2021</p>
+              </div>
+            </Col>
+            <Col xs={24} md={8} lg={8} xl={8}>
+              <a href="/details" className="image-box">
+                <img src={dauPhu} alt="" />
+              </a>
+              <div className="content">
+                <a href="/details" className="article-title">
+                  Đậu phụ
+                </a>
+                <p className="date">25, July 2021</p>
+              </div>
+            </Col>
+          </Row>
         </div>
         <div className="right-side">
           <p className="title-details">tìm kiếm bài viết</p>

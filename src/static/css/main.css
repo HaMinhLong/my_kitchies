@@ -4,6 +4,7 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
@@ -13,6 +14,14 @@ body {
   font-size: 18px;
   font-family: "Gentium Book Basic", serif !important;
   -webkit-font-smoothing: antialiased;
+  background: #1e2c30;
+}
+
+body::-webkit-scrollbar {
+  /* WebKit */
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  width: 5px;
+  height: 100%;
 }
 
 .navigation li,
@@ -74,16 +83,62 @@ header .content .site-description {
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
+header .search-box {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1f1e1d;
+  z-index: 100;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+header .search-box form {
+  margin: 0 auto;
+  max-width: 90%;
+  width: 1400px;
+}
+header .search-box form input {
+  height: 57px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 5px 10px;
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+header .search-box.active {
+  top: 0;
+}
 
 .navigation {
   background: #1f1e1d;
 }
+.navigation .icon-box {
+  display: none;
+}
 .navigation ul {
+  position: relative;
   margin: 0 auto;
   max-width: 90%;
   width: 1400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 .navigation ul li {
@@ -106,6 +161,18 @@ header .content .site-description {
 }
 .navigation ul li a:hover {
   color: #fff;
+}
+.navigation ul .search-icon {
+  padding: 22px;
+  cursor: pointer;
+  position: absolute;
+  left: 100%;
+  bottom: 0;
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
 }
 
 .main-page {
@@ -131,7 +198,9 @@ header .content .site-description {
   margin-bottom: 40px;
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
+  -moz-column-break-inside: avoid;
   break-inside: avoid;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -204,7 +273,11 @@ header .content .site-description {
 }
 .main-page .articles-container .article .date-box {
   margin-top: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   background-color: rgba(30, 44, 48, 0.1);
   padding: 0 10%;
@@ -269,7 +342,11 @@ footer .footer-container {
   width: 1440px;
   margin: 0 auto;
   padding: 60px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 footer .footer-container .divider {
@@ -284,7 +361,7 @@ footer .footer-container .footer-title {
   font-weight: 700;
   color: #fff;
   letter-spacing: 1px;
-  line-height: 14px;
+  line-height: 25px;
   text-transform: uppercase;
 }
 footer .footer-container .categories-box {
@@ -325,6 +402,18 @@ footer .footer-container .categories-box form input {
   border: none;
   font-size: 14px;
 }
+footer .footer-container .categories-box form input::-webkit-input-placeholder {
+  font-size: 14px;
+}
+footer .footer-container .categories-box form input::-moz-placeholder {
+  font-size: 14px;
+}
+footer .footer-container .categories-box form input:-ms-input-placeholder {
+  font-size: 14px;
+}
+footer .footer-container .categories-box form input::-ms-input-placeholder {
+  font-size: 14px;
+}
 footer .footer-container .categories-box form input::placeholder {
   font-size: 14px;
 }
@@ -351,8 +440,13 @@ footer .footer-container .articles-box {
 }
 footer .footer-container .articles-box .articles {
   margin-top: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 footer .footer-container .articles-box .articles img {
@@ -396,7 +490,11 @@ footer .footer-container .author-box .author .content p {
   margin: 0 auto;
   max-width: 92.6%;
   width: 1440px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 60px 0px;
 }
@@ -438,6 +536,28 @@ footer .footer-container .author-box .author .content p {
 }
 .details-page .article-details .details .descriptions {
   padding: 8% 10%;
+}
+.details-page .article-details .details .related-articles {
+  padding: 8% 10%;
+}
+.details-page .article-details .details .related-articles .image-box {
+  display: block;
+  height: 150px;
+}
+.details-page .article-details .details .related-articles .image-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+.details-page .article-details .details .related-articles .content {
+  margin-top: 10px;
+}
+.details-page .article-details .details .related-articles .content p {
+  font-size: 14px;
 }
 .details-page .article-details .right-side {
   width: 27.5%;
@@ -485,6 +605,22 @@ footer .footer-container .author-box .author .content p {
   padding: 0px 20px;
   font-size: 14px;
 }
+.details-page
+  .article-details
+  .right-side
+  form
+  input::-webkit-input-placeholder {
+  font-size: 14px;
+}
+.details-page .article-details .right-side form input::-moz-placeholder {
+  font-size: 14px;
+}
+.details-page .article-details .right-side form input:-ms-input-placeholder {
+  font-size: 14px;
+}
+.details-page .article-details .right-side form input::-ms-input-placeholder {
+  font-size: 14px;
+}
 .details-page .article-details .right-side form input::placeholder {
   font-size: 14px;
 }
@@ -525,5 +661,3 @@ footer .footer-container .author-box .author .content p {
   color: #999;
   font-size: 15px;
 }
-
-/*# sourceMappingURL=main.css.map */

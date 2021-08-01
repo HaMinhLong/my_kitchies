@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import bannerImage from "../static/images/home/banner-image.jpg";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [toggleNav, setToggleNav] = useState(false);
+  const [toggleSearch, setToggleSearch] = useState(false);
   return (
     <>
       <header>
@@ -17,9 +19,27 @@ const Header = () => {
             </p>
           </div>
         </div>
+        <div className={toggleSearch ? "search-box active" : "search-box"}>
+          <form>
+            <input type="text" placeholder="Search..." />
+          </form>
+        </div>
       </header>
       <section className="navigation">
-        <ul>
+        <div className="icon-box">
+          <div className="nav-icon">
+            <p onClick={() => setToggleNav(!toggleNav)}>
+              <i className="fas fa-bars"></i>Menu
+            </p>
+          </div>
+          <div className="search-icon">
+            <i
+              className="fas fa-search"
+              onClick={() => setToggleSearch(!toggleSearch)}
+            ></i>
+          </div>
+        </div>
+        <ul className={toggleNav ? "active" : ""}>
           <li>
             <Link to="/">Trang chủ</Link>
           </li>
@@ -58,6 +78,12 @@ const Header = () => {
           <li className="slash">/</li>
           <li>
             <Link to="/">About me</Link>
+          </li>
+          <li className="search-icon">
+            <i
+              className="fas fa-search"
+              onClick={() => setToggleSearch(!toggleSearch)}
+            ></i>
           </li>
         </ul>
       </section>
